@@ -1,0 +1,9 @@
+Install git 2.2.1
+Install java 8
+Install tomcat 8
+Install mysql 5.6.19
+// in mysql shell login as root:
+// CREATE USER 'newuser'@'localhost' IDENTIFIED BY 'password';
+// GRANT ALL PRIVILEGES ON * . * TO 'newuser'@'localhost';
+// FLUSH PRIVILEGES;
+// logout of root

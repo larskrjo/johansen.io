@@ -1,0 +1,6 @@
+Add the following lines to your .bash_profile:
+
+source ~/larskristian.net/.alias
+source ~/larskristian.net/.gitprompt
+source ~/larskristian.net/.mysql
+source ~/larskristian.net/.tomcat
