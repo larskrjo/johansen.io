@@ -1,6 +1,14 @@
 Install git 2.2.1
 Install java 8
 Install tomcat 8
+// In conf/tomcat-users.xml add:
+// <role rolename="tomcat"/>
+// <role rolename="manager-gui"/>
+// <role rolename="manager-script"/>
+// <role rolename="admin-gui"/>
+// <user username="admin" password="Abcd1234" roles="tomcat,manager-gui,admin-gui,manager-script"/>
+Install maven 3.2.5
+Install ant 1.9.4
 Install mysql 5.6.19
 // in mysql shell login as root:
 // CREATE USER 'newuser'@'localhost' IDENTIFIED BY 'password';

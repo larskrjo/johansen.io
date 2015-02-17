@@ -8,7 +8,9 @@ alias ftest='ftest'
 alias refreshdb='refreshdb-func'
 alias rebuild='rebuild-func'
 alias fullbuild='fullbuild-func'
+alias restart-tomcat='restart-tomcat-func'
 alias gohome='gohome-func'
+alias logs='logs-func'
 
 function help-func {
 	echo 
@@ -83,30 +85,30 @@ function rebuild-func {
 	echo Rebuilding codebase started.
 	echo ////////////////////////////
 	gohome-func;
-	# ...
+	mvn clean tomcat7:deploy
 	echo /////////////////////////////
 	echo Rebuilding codebase finished.
 	echo /////////////////////////////
 	# Restart webserver
-	echo ////////////////////////////////
-	echo Shutting down webserver started.
-	echo ////////////////////////////////
-	shutdown.sh
-	echo /////////////////////////////////
-	echo Shutting down webserver finished.
-	echo /////////////////////////////////
-	echo
-	echo //////////////////////////////
-	echo Starting up webserver started.
-	echo //////////////////////////////
-	startup.sh
-	echo ///////////////////////////////
-	echo Starting up webserver finished.
-	echo ///////////////////////////////
+	#echo ////////////////////////////////
+	#echo Shutting down webserver started.
+	#echo ////////////////////////////////
+	#shutdown.sh
+	#echo /////////////////////////////////
+	#echo Shutting down webserver finished.
+	#echo /////////////////////////////////
+	#echo
+	#echo //////////////////////////////
+	#echo Starting up webserver started.
+	#echo //////////////////////////////
+	#startup.sh
+	#echo ///////////////////////////////
+	#echo Starting up webserver finished.
+	#echo ///////////////////////////////
 }
 
 function fullbuild-func {
-        # Rebuild
+    # Rebuild
 	rebuild-func;
 	# Refresh data in DB
 	refreshdb-func;
@@ -130,6 +132,24 @@ function refreshdb-func {
 	echo /////////////////////////////
 }
 
+function restart-tomcat-func {
+	echo Restarting tomcat started.
+	gohome-func
+	
+	apache_http_server_running=$(ps aux | grep httpd | grep root | wc -l)
+	if [ $apache_http_server_running -gt 0 ]
+    	then
+        	sudo apachectl stop
+	fi
+	sudo shutdown.sh
+	sudo startup.sh
+	echo Restarting tomcat finished.
+}
+
 function gohome-func {
 	cd ~/larskristian.net
+}
+
+function logs-func {
+	tail -f ~/larskristian.net/environment/tomcat/8.0.18/logs/catalina.out
 }
