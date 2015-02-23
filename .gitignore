@@ -15,15 +15,6 @@ target
 # virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
 hs_err_pid*
 
-# Local configuration
-environment/localcfg/db_username
-environment/localcfg/db_password
-
-# Local enviroment
-environment/tomcat/*
-environment/maven/*
-environment/ant/*
-
 # IntelliJ IDEA
 .idea
 *.iml

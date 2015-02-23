@@ -108,7 +108,7 @@ function rebuild-func {
 }
 
 function fullbuild-func {
-    # Rebuild
+    	# Rebuild
 	rebuild-func;
 	# Refresh data in DB
 	refreshdb-func;
@@ -118,7 +118,7 @@ function refreshdb-func {
 	echo /////////////////////////
 	echo Rebuild databases started.
 	echo /////////////////////////
-	~/larskristian.net/database/build.sh ~/larskristian.net/environment/localcfg/db_username ~/larskristian.net/environment/localcfg/db_password
+	~/larskristian.net/larskristian.net/database/build.sh ~/larskristian.net/environment/localcfg/db_username ~/larskristian.net/environment/localcfg/db_password
 	echo //////////////////////////
 	echo Rebuild databases finished.
 	echo //////////////////////////
@@ -126,7 +126,7 @@ function refreshdb-func {
 	echo ////////////////////////////
 	echo Bootstrap databases started.
 	echo ////////////////////////////
-	~/larskristian.net/database/bootstrap.sh ~/larskristian.net/environment/localcfg/db_username ~/larskristian.net/environment/localcfg/db_password
+	~/larskristian.net/larskristian.net/database/bootstrap.sh ~/larskristian.net/environment/localcfg/db_username ~/larskristian.net/environment/localcfg/db_password
 	echo /////////////////////////////
 	echo Bootstrap databases finished.
 	echo /////////////////////////////
@@ -147,7 +147,7 @@ function restart-tomcat-func {
 }
 
 function gohome-func {
-	cd ~/larskristian.net
+	cd ~/larskristian.net/larskristian.net
 }
 
 function logs-func {

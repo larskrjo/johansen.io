@@ -1,8 +1,8 @@
 Add the following lines to your .bash_profile;
 
-source ~/larskristian.net/.alias
-source ~/larskristian.net/.gitprompt
-source ~/larskristian.net/.mysql
-source ~/larskristian.net/.tomcat
-source ~/larskristian.net/.maven
-source ~/larskristian.net/.ant
+source ~/larskristian.net/larskristian.net/.alias
+source ~/larskristian.net/larskristian.net/.gitprompt
+source ~/larskristian.net/larskristian.net/.mysql
+source ~/larskristian.net/larskristian.net/.tomcat
+source ~/larskristian.net/larskristian.net/.maven
+source ~/larskristian.net/larskristian.net/.ant

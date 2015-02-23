@@ -13,5 +13,5 @@ while read line
     password=$line
   done < $2
 
-mysql -h localhost --user=$username --password=$password < ~/larskristian.net/database/migration/prod/baseline.sql
-mysql -h localhost --user=$username --password=$password < ~/larskristian.net/database/migration/test/baseline.sql
+mysql -h localhost --user=$username --password=$password < ~/larskristian.net/larskristian.net/database/migration/prod/baseline.sql
+mysql -h localhost --user=$username --password=$password < ~/larskristian.net/larskristian.net/database/migration/test/baseline.sql

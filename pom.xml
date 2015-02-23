@@ -8,9 +8,36 @@
   <name>larskristian.net</name>
 
   <properties>
-    <spring.version>4.1.1.RELEASE</spring.version>
+    <!-- Core -->
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <spring.version>4.1.1.RELEASE</spring.version>
+    <maven.compiler.version>3.2</maven.compiler.version>
+
+    <!-- Testing -->
+    <maven.surefire.version>2.18.1</maven.surefire.version>
+
+    <!-- Reporting -->
+    <maven.jxr.version>2.3</maven.jxr.version>
+    <jacoco.version>0.7.0.201403182114</jacoco.version>
+    <maven.pmd.version>3.4</maven.pmd.version>
+    <maven.checkstyle.version>2.14</maven.checkstyle.version>
+
+    <!-- Deployment -->
+    <maven.tomcat.version>2.2</maven.tomcat.version>
+
+    <!-- Dependencies -->
+    <junit.version>4.11</junit.version>
+    <javax.jsp.version>2.1</javax.jsp.version>
+    <javax.servlet.version>3.0.1</javax.servlet.version>
+
   </properties>
+
+  <repositories>
+    <repository>
+      <id>my-internal-site</id>
+      <url>http://larskristian.net:8082/repo</url>
+    </repository>
+  </repositories>
 
   <dependencies>
     <dependency>
@@ -23,19 +50,6 @@
       <groupId>org.springframework</groupId>
       <artifactId>spring-web</artifactId>
       <version>${spring.version}</version>
-    </dependency>
-
-    <dependency>
-      <groupId>javax.servlet</groupId>
-      <artifactId>javax.servlet-api</artifactId>
-      <version>3.0.1</version>
-    </dependency>
-
-    <dependency>
-      <groupId>javax.servlet.jsp</groupId>
-      <artifactId>jsp-api</artifactId>
-      <version>2.1</version>
-      <scope>provided</scope>
     </dependency>
 
     <dependency>
@@ -52,9 +66,22 @@
     </dependency>
 
     <dependency>
+      <groupId>javax.servlet</groupId>
+      <artifactId>javax.servlet-api</artifactId>
+      <version>${javax.servlet.version}</version>
+    </dependency>
+
+    <dependency>
+      <groupId>javax.servlet.jsp</groupId>
+      <artifactId>jsp-api</artifactId>
+      <version>${javax.jsp.version}</version>
+      <scope>provided</scope>
+    </dependency>
+
+    <dependency>
       <groupId>junit</groupId>
       <artifactId>junit</artifactId>
-      <version>4.11</version>
+      <version>${junit.version}</version>
       <scope>test</scope>
     </dependency>
   </dependencies>
@@ -64,7 +91,7 @@
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-checkstyle-plugin</artifactId>
-        <version>2.14</version>
+        <version>${maven.checkstyle.version}</version>
         <reportSets>
           <reportSet>
             <reports>
@@ -73,10 +100,16 @@
           </reportSet>
         </reportSets>
       </plugin>
+
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-pmd-plugin</artifactId>
-        <version>3.4</version>
+        <version>${maven.pmd.version}</version>
+      </plugin>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-jxr-plugin</artifactId>
+        <version>${maven.jxr.version}</version>
       </plugin>
     </plugins>
   </reporting>
@@ -85,79 +118,56 @@
     <finalName>larskristian.net</finalName>
     <plugins>
       <plugin>
-        <groupId>org.jacoco</groupId>
-        <artifactId>jacoco-maven-plugin</artifactId>
-        <version>0.7.0.201403182114</version>
-        <executions>
-          <execution>
-          <id>pre-unit-test</id>
-          <goals>
-            <goal>prepare-agent</goal>
-          </goals>
-          </execution>
-          <execution>
-            <id>post-unit-test</id>
-            <phase>test</phase>
-            <goals>
-              <goal>report</goal>
-            </goals>
-          </execution>
-        </executions>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <version>${maven.compiler.version}</version>
+        <configuration>
+          <source>1.6</source>
+          <target>1.6</target>
+        </configuration>
       </plugin>
-      <plugin>
-        <groupId>org.jacoco</groupId>
-        <artifactId>jacoco-maven-plugin</artifactId>
-        <version>0.7.0.201403182114</version>
-        <executions>
-          <execution>
-          <id>pre-unit-test</id>
-          <goals>
-            <goal>prepare-agent</goal>
-          </goals>
-          </execution>
-          <execution>
-            <id>post-unit-test</id>
-            <phase>test</phase>
-            <goals>
-              <goal>report</goal>
-            </goals>
-          </execution>
-        </executions>
-      </plugin>
+
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-jxr-plugin</artifactId>
-        <version>2.3</version>
+        <artifactId>maven-surefire-plugin</artifactId>
+        <version>${maven.surefire.version}</version>
+        <configuration>
+          <includes>
+            <include>**/*Tests.java</include>
+          </includes>
+        </configuration>
       </plugin>
+      <plugin>
+        <groupId>org.jacoco</groupId>
+        <artifactId>jacoco-maven-plugin</artifactId>
+        <version>${jacoco.version}</version>
+        <executions>
+          <execution>
+            <id>pre-unit-test</id>
+            <goals>
+              <goal>prepare-agent</goal>
+            </goals>
+          </execution>
+          <execution>
+            <id>post-unit-test</id>
+            <phase>test</phase>
+            <goals>
+              <goal>report</goal>
+            </goals>
+          </execution>
+        </executions>
+      </plugin>
+
       <plugin>
         <groupId>org.apache.tomcat.maven</groupId>
         <artifactId>tomcat7-maven-plugin</artifactId>
-        <version>2.2</version>
+        <version>${maven.tomcat.version}</version>
         <configuration>
           <path>/</path>
           <update>true</update>
           <url>http://localhost/manager/text</url>
           <username>admin</username>
           <password>Abcd1234</password>
-        </configuration>
-      </plugin>
-      <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-compiler-plugin</artifactId>
-        <version>3.2</version>
-        <configuration>
-          <source>1.6</source>
-          <target>1.6</target>
-        </configuration>
-      </plugin>
-      <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-surefire-plugin</artifactId>
-        <version>2.18.1</version>
-        <configuration>
-          <includes>
-            <include>**/*Tests.java</include>
-          </includes>
         </configuration>
       </plugin>
     </plugins>
