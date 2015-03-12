@@ -1,0 +1,1 @@
+insert into USER (id, firstName, lastName, email) values ('0', 'Lars', 'Johansen', 'larskrjo@gmail.com');

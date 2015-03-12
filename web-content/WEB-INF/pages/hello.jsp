@@ -1,5 +1,8 @@
 <html>
-<body>
-	<h1>${message}</h1>
-</body>
+    <head>
+        <link href="resources/css/bootstrap.css" rel="stylesheet" type="text/css">
+        <script data-main="js/main" src="js/lib/require.js"></script>
+    </head>
+    {{message}} !
+    <body id="body"></body>
 </html>
