@@ -1,0 +1,38 @@
+// Suggestion; Move the files downloaded to ~/larskristian.net
+
+Install git 2.2.1
+Install java 8
+Install tomcat 8
+// In conf/tomcat-users.xml add:
+// <role rolename="tomcat"/>
+// <role rolename="manager-gui"/>
+// <role rolename="manager-script"/>
+// <role rolename="admin-gui"/>
+// <user username="admin" password="Abcd1234" roles="tomcat,manager-gui,admin-gui,manager-script"/>
+
+// Configure debug mode in tomcat
+// create file: bin/setenv.{sh/bat} with content: export JPDA_OPTS="-agentlib:jdwp=transport=dt_socket,address=8000,server=y,suspend=n"
+
+Install maven 3.2.5
+Install ant 1.9.4
+Install mysql 5.6.19
+// in mysql shell login as root:
+// CREATE USER '<db.user>'@'localhost' IDENTIFIED BY '<db.pass>';
+// GRANT ALL PRIVILEGES ON * . * TO '<db.user>'@'localhost';
+// FLUSH PRIVILEGES;
+// logout of root
+// log in wit <db.user>
+// create two databases; lars_prod and lars_dev [create database lars_prod; create database lars_dev;]
+
+// Setup local settings.xml and scripts/.home
+Copy scripts/settings.xml.template to ~/.m2/settings.xml and fill out missing fields
+Edit scripts/.home to fit your installation path.
+
+// Then and add the following lines to your .bash_profile assuming you installed into ~/larskristian.net;
+source ~/larskristian.net/larskristian.net/scripts/.home
+source ~/larskristian.net/larskristian.net/scripts/.alias
+source ~/larskristian.net/larskristian.net/scripts/.gitprompt
+source ~/larskristian.net/larskristian.net/scripts/.mysql
+source ~/larskristian.net/larskristian.net/scripts/.tomcat
+source ~/larskristian.net/larskristian.net/scripts/.maven
+source ~/larskristian.net/larskristian.net/scripts/.ant

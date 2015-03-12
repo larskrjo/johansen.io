@@ -27,6 +27,22 @@
     </dependency>
 
     <dependency>
+      <groupId>net.larskristian</groupId>
+      <artifactId>website.ui</artifactId>
+      <version>${project.version}</version>
+      <scope>system</scope>
+      <systemPath>${root.dir}/ui/target/website.ui-1.0-SNAPSHOT.jar</systemPath>
+    </dependency>
+
+    <dependency>
+      <groupId>net.larskristian</groupId>
+      <artifactId>website.api</artifactId>
+      <version>${project.version}</version>
+      <scope>system</scope>
+      <systemPath>${root.dir}/api/target/website.api-1.0-SNAPSHOT.jar</systemPath>
+    </dependency>
+
+    <dependency>
       <groupId>junit</groupId>
       <artifactId>junit</artifactId>
       <version>${junit.version}</version>

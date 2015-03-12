@@ -43,6 +43,30 @@
       <systemPath>${root.dir}/integration-tests/target/website.integration-tests-1.0-SNAPSHOT.jar</systemPath>
     </dependency>
 
+    <dependency>
+      <groupId>net.larskristian</groupId>
+      <artifactId>website.ui</artifactId>
+      <version>${project.version}</version>
+      <scope>system</scope>
+      <systemPath>${root.dir}/ui/target/website.ui-1.0-SNAPSHOT.jar</systemPath>
+    </dependency>
+
+    <dependency>
+      <groupId>net.larskristian</groupId>
+      <artifactId>website.api</artifactId>
+      <version>${project.version}</version>
+      <scope>system</scope>
+      <systemPath>${root.dir}/api/target/website.api-1.0-SNAPSHOT.jar</systemPath>
+    </dependency>
+
+    <dependency>
+      <groupId>net.larskristian</groupId>
+      <artifactId>website.db</artifactId>
+      <version>${project.version}</version>
+      <scope>system</scope>
+      <systemPath>${root.dir}/db/target/website.db-1.0-SNAPSHOT.jar</systemPath>
+    </dependency>
+
   </dependencies>
 
   <build>
@@ -50,15 +74,86 @@
     <plugins>
 
       <plugin>
+        <artifactId>maven-clean-plugin</artifactId>
+        <version>${maven.clean.version}</version>
+        <configuration>
+          <filesets>
+            <fileset>
+              <directory>${root.dir}/web-content/WEB-INF/lib</directory>
+              <includes>
+                <include>**/*.jar</include>
+              </includes>
+              <followSymlinks>false</followSymlinks>
+            </fileset>
+          </filesets>
+        </configuration>
+      </plugin>
+
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-dependency-plugin</artifactId>
+        <version>${maven.dependency.version}</version>
+        <executions>
+          <execution>
+            <id>copy</id>
+            <phase>package</phase>
+            <goals>
+              <goal>copy</goal>
+            </goals>
+            <configuration>
+              <artifactItems>
+                <artifactItem>
+                  <groupId>net.larskristian</groupId>
+                  <artifactId>website.core</artifactId>
+                  <type>jar</type>
+                  <overWrite>true</overWrite>
+                  <outputDirectory>${root.dir}/web-content/WEB-INF/lib</outputDirectory>
+                </artifactItem>
+                <artifactItem>
+                  <groupId>net.larskristian</groupId>
+                  <artifactId>website.ui</artifactId>
+                  <type>jar</type>
+                  <overWrite>true</overWrite>
+                  <outputDirectory>${root.dir}/web-content/WEB-INF/lib</outputDirectory>
+                </artifactItem>
+                <artifactItem>
+                  <groupId>net.larskristian</groupId>
+                  <artifactId>website.api</artifactId>
+                  <type>jar</type>
+                  <overWrite>true</overWrite>
+                  <outputDirectory>${root.dir}/web-content/WEB-INF/lib</outputDirectory>
+                </artifactItem>
+                <artifactItem>
+                  <groupId>net.larskristian</groupId>
+                  <artifactId>website.db</artifactId>
+                  <type>jar</type>
+                  <overWrite>true</overWrite>
+                  <outputDirectory>${root.dir}/web-content/WEB-INF/lib</outputDirectory>
+                </artifactItem>
+              </artifactItems>
+            </configuration>
+          </execution>
+        </executions>
+      </plugin>
+
+      <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-war-plugin</artifactId>
         <version>${maven.war.version}</version>
+        <executions>
+          <execution>
+            <id>war</id>
+            <phase>package</phase>
+            <goals>
+              <goal>war</goal>
+            </goals>
+          </execution>
+        </executions>
         <configuration>
           <webXml>${root.dir}/web-content/WEB-INF/web.xml</webXml>
           <packagingExcludes>WEB-INF/web.xml</packagingExcludes>
           <webResources>
             <resource>
-              <directory>${root.dir}/core</directory>
               <directory>${root.dir}/web-content</directory>
             </resource>
           </webResources>

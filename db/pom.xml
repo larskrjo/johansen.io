@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <parent>
+    <artifactId>website.parent</artifactId>
+    <groupId>net.larskristian</groupId>
+    <version>1.0-SNAPSHOT</version>
+  </parent>
+  <modelVersion>4.0.0</modelVersion>
+
+  <artifactId>website.db</artifactId>
+
+  <properties>
+    <!-- Root dir -->
+    <root.dir>${basedir}/..</root.dir>
+  </properties>
+
+  <profiles>
+
+    <profile>
+      <id>dev</id>
+      <activation>
+        <activeByDefault>true</activeByDefault>
+      </activation>
+      <build>
+        <plugins>
+          <plugin>
+            <groupId>org.flywaydb</groupId>
+            <artifactId>flyway-maven-plugin</artifactId>
+            <version>3.2.1</version>
+            <configuration>
+              <user>${db.user}</user>
+              <password>${db.pass}</password>
+              <driver>com.mysql.jdbc.Driver</driver>
+              <url>jdbc:mysql://localhost:3306/lars_dev</url>
+            </configuration>
+          </plugin>
+        </plugins>
+
+        <resources>
+          <resource>
+            <directory>src/main/resources/dev</directory>
+            <filtering>true</filtering>
+          </resource>
+        </resources>
+      </build>
+    </profile>
+
+    <profile>
+      <id>test</id>
+      <build>
+        <plugins>
+          <plugin>
+            <groupId>org.flywaydb</groupId>
+            <artifactId>flyway-maven-plugin</artifactId>
+            <version>3.2.1</version>
+            <configuration>
+              <user>${db.user}</user>
+              <password>${db.pass}</password>
+              <driver>com.mysql.jdbc.Driver</driver>
+              <url>jdbc:mysql://localhost:3306/lars_test</url>
+            </configuration>
+          </plugin>
+        </plugins>
+
+        <resources>
+          <resource>
+            <directory>src/main/resources/test</directory>
+            <filtering>true</filtering>
+          </resource>
+        </resources>
+      </build>
+    </profile>
+
+    <profile>
+      <id>prod</id>
+      <build>
+        <plugins>
+          <plugin>
+            <groupId>org.flywaydb</groupId>
+            <artifactId>flyway-maven-plugin</artifactId>
+            <version>3.2.1</version>
+            <configuration>
+              <user>${db.user}</user>
+              <password>${db.pass}</password>
+              <driver>com.mysql.jdbc.Driver</driver>
+              <url>jdbc:mysql://localhost:3306/lars_prod</url>
+            </configuration>
+          </plugin>
+        </plugins>
+
+        <resources>
+          <resource>
+            <directory>src/main/resources/prod</directory>
+            <filtering>true</filtering>
+          </resource>
+        </resources>
+      </build>
+    </profile>
+
+  </profiles>
+
+</project>

@@ -1,0 +1,16 @@
+<!-- personalize this file and copy it to ~/.m2/settings.xml -->
+<settings>
+  <profiles>
+    <profile>
+      <activation>
+        <activeByDefault>true</activeByDefault>
+      </activation>
+      <properties>
+        <db.user>your_db_username</db.user>
+        <db.pass>your_db_password</db.pass>
+        <tomcat.user>your_tomcat_username</tomcat.user>
+        <tomcat.pass>your_tomcat_password</tomcat.pass>
+      </properties>
+    </profile>
+  </profiles>
+</settings>

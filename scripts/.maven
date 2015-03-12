@@ -1,0 +1,2 @@
+PATH=$LARSKRISTIAN_HOME/environment/maven/3.2.5/bin:$PATH
+M2_HOME=$LARSKRISTIAN_HOME/environment/maven/3.2.5
