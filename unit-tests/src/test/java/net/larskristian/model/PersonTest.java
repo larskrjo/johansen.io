@@ -13,7 +13,7 @@ public class PersonTest {
     @Test
     public void testPerson() {
         Person person = new Person("Lars", "Johansen");
-        assertThat(person.getFirstName(), is("Lars"));
+        assertThat(person.getFirstName(), is("Larss"));
         assertThat(person.getLastName(), is("Johansen"));
     }
 }
