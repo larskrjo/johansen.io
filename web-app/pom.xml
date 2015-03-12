@@ -54,11 +54,11 @@
         <artifactId>maven-war-plugin</artifactId>
         <version>${maven.war.version}</version>
         <configuration>
-          <webXml>../web-content/WEB-INF/web.xml</webXml>
+          <webXml>${root.dir}/web-content/WEB-INF/web.xml</webXml>
           <packagingExcludes>WEB-INF/web.xml</packagingExcludes>
           <webResources>
             <resource>
-              <directory>../web-content</directory>
+              <directory>${root.dir}/web-content</directory>
             </resource>
           </webResources>
         </configuration>
