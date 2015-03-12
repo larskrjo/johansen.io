@@ -58,6 +58,7 @@
           <packagingExcludes>WEB-INF/web.xml</packagingExcludes>
           <webResources>
             <resource>
+              <directory>${root.dir}/core</directory>
               <directory>${root.dir}/web-content</directory>
             </resource>
           </webResources>
