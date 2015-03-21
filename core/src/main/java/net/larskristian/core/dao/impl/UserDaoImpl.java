@@ -16,8 +16,7 @@ public class UserDaoImpl extends BaseDao<User> implements UserDao {
 
     @Override
     public User getUser(String userId) {
-        Long id = Long.parseLong(userId);
-        return get(id);
+        return get(userId);
     }
 
 }

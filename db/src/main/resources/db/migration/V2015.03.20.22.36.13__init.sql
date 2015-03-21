@@ -1,1 +1,1 @@
-insert into USER (id, firstName, lastName, email) values ('0', 'Lars', 'Johansen', 'larskrjo@gmail.com');
+insert into USER (id, firstName, lastName, email) values ('de305d54-79b4-431b-adb2-eb6b9e546013', 'Lars', 'Johansen', 'larskrjo@gmail.com');

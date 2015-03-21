@@ -5,7 +5,8 @@ alias utest='utest-func'
 alias itest='itest-func'
 alias refreshdb='refreshdb-func'
 alias rebuild='rebuild-func'
-alias uibuild='uibuild-func'
+alias ui='refreshui'
+alias refreshui='refreshui-func'
 alias fullbuild='fullbuild-func'
 alias restart-tomcat='restart-tomcat-func'
 alias gohome='gohome-func'
@@ -13,6 +14,11 @@ alias logs='logs-func'
 alias access-logs='access-logs-func'
 alias commit-and-push='commit-and-push-func'
 alias db-migrate='db-migrate-func'
+alias jshint='jshint-func'
+
+function jshint-func {
+	mvn -f web-app/pom.xml validate -P jshint
+}
 
 function help-func {
 	echo 
@@ -56,8 +62,8 @@ function db-migrate-func {
 	then
 	filename=V$(date "+%Y.%m.%d.%H.%M.%S")__$1.sql
 	gohome;
-	touch db/src/main/resources/db/migrations/$filename
-	echo "Include sql changes in file db/src/main/resources/db/migrations/$filename"
+	touch db/src/main/resources/db/migration/$filename
+	echo "Include sql changes in file db/src/main/resources/db/migration/$filename"
 	else
 	echo "usage: db-migrate <name>"
 	fi
@@ -127,6 +133,7 @@ function refreshdb-func {
 	echo ///////////////////////////
 	gohome;
 	mvn -f db/pom.xml compile flyway:clean flyway:migrate flyway:info -Pdev
+	mvn -f db/pom.xml compile flyway:clean flyway:migrate flyway:info -Pprod
 	echo ////////////////////////////
 	echo Database migration finished.
 	echo ////////////////////////////
@@ -168,7 +175,7 @@ function utest-func {
 	mvn -f unit-tests/pom.xml clean test -Dtest=$1
 }
 
-function uibuild-func {
+function refreshui-func {
 	gohome;
 	mvn -f web-app/pom.xml package tomcat7:deploy -Pui
 }

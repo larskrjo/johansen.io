@@ -4,12 +4,12 @@ import net.larskristian.core.dao.UserDao;
 import net.larskristian.core.dao.dto.User;
 import net.larskristian.core.manager.UserManager;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 
 /**
  * @author Lars K. Johansen
  */
-@Component
+@Service
 public class UserManagerImpl implements UserManager {
 
     @Autowired

@@ -21,26 +21,18 @@
 
     <dependency>
       <groupId>net.larskristian</groupId>
+      <artifactId>website.framework</artifactId>
+      <version>${project.version}</version>
+      <scope>system</scope>
+      <systemPath>${root.dir}/framework/target/website.framework-1.0-SNAPSHOT.jar</systemPath>
+    </dependency>
+
+    <dependency>
+      <groupId>net.larskristian</groupId>
       <artifactId>website.core</artifactId>
       <version>${project.version}</version>
       <scope>system</scope>
       <systemPath>${root.dir}/core/target/website.core-1.0-SNAPSHOT.jar</systemPath>
-    </dependency>
-
-    <dependency>
-      <groupId>net.larskristian</groupId>
-      <artifactId>website.unit-tests</artifactId>
-      <version>${project.version}</version>
-      <scope>system</scope>
-      <systemPath>${root.dir}/unit-tests/target/website.unit-tests-1.0-SNAPSHOT.jar</systemPath>
-    </dependency>
-
-    <dependency>
-      <groupId>net.larskristian</groupId>
-      <artifactId>website.integration-tests</artifactId>
-      <version>${project.version}</version>
-      <scope>system</scope>
-      <systemPath>${root.dir}/integration-tests/target/website.integration-tests-1.0-SNAPSHOT.jar</systemPath>
     </dependency>
 
     <dependency>
@@ -70,6 +62,40 @@
   </dependencies>
 
   <profiles>
+
+    <profile>
+      <id>jshint</id>
+      <build>
+        <plugins>
+          <plugin>
+            <groupId>com.cj.jshintmojo</groupId>
+            <artifactId>jshint-maven-plugin</artifactId>
+            <version>1.6.0</version>
+            <executions>
+              <execution>
+                <phase>validate</phase>
+                <goals>
+                  <goal>lint</goal>
+                </goals>
+              </execution>
+            </executions>
+            <configuration>
+              <configFile>../scripts/jshint/.jshintrc</configFile>
+              <directories>
+                <directory>../web-content/resources/js</directory>
+              </directories>
+              <excludes>
+                <exclude>../web-content/resources/js/libs</exclude>
+              </excludes>
+              <reporter>checkstyle</reporter>
+              <reportFile>target/jshint.xml</reportFile>
+              <failOnError>true</failOnError>
+            </configuration>
+          </plugin>
+        </plugins>
+      </build>
+    </profile>
+
     <profile>
       <id>dev,test,prod</id>
       <activation>
@@ -109,6 +135,13 @@
                 </goals>
                 <configuration>
                   <artifactItems>
+                    <artifactItem>
+                      <groupId>net.larskristian</groupId>
+                      <artifactId>website.framework</artifactId>
+                      <type>jar</type>
+                      <overWrite>true</overWrite>
+                      <outputDirectory>${root.dir}/web-content/WEB-INF/lib</outputDirectory>
+                    </artifactItem>
                     <artifactItem>
                       <groupId>net.larskristian</groupId>
                       <artifactId>website.core</artifactId>

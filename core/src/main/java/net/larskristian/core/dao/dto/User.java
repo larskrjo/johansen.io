@@ -1,11 +1,12 @@
 package net.larskristian.core.dao.dto;
 
+import com.google.common.base.MoreObjects;
 import com.google.common.base.Objects;
+import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 import java.io.Serializable;
@@ -17,12 +18,13 @@ import java.io.Serializable;
 @Table(name = "User")
 public class User implements Serializable {
 
-    private static final long serialVersionUID = 1L;
+    private static final long serialVersionUID = 0L;
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "id")
-    private long id;
+    @GeneratedValue(generator = "system-uuid")
+    @GenericGenerator(name = "system-uuid", strategy = "uuid2")
+    @Column(name = "id", columnDefinition = "char")
+    private String id;
 
     @Column(name = "firstName")
     private String firstName;
@@ -33,8 +35,12 @@ public class User implements Serializable {
     @Column(name = "email")
     private String email;
 
-    public long getId() {
+    public String getId() {
         return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
     }
 
     public String getFirstName() {
@@ -83,6 +89,11 @@ public class User implements Serializable {
 
     @Override
     public String toString() {
-        return firstName + " " + lastName;
+        return MoreObjects.toStringHelper(this)
+                .add("id", id)
+                .add("firstName", firstName)
+                .add("lastName", lastName)
+                .add("email", email)
+                .toString();
     }
 }

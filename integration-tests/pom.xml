@@ -20,6 +20,14 @@
 
     <dependency>
       <groupId>net.larskristian</groupId>
+      <artifactId>website.framework</artifactId>
+      <version>${project.version}</version>
+      <scope>system</scope>
+      <systemPath>${root.dir}/framework/target/website.framework-1.0-SNAPSHOT.jar</systemPath>
+    </dependency>
+
+    <dependency>
+      <groupId>net.larskristian</groupId>
       <artifactId>website.core</artifactId>
       <version>${project.version}</version>
       <scope>system</scope>

@@ -13,6 +13,7 @@
     <module>ui</module>
     <module>api</module>
     <module>db</module>
+    <module>framework</module>
   </modules>
 
   <developers>
@@ -59,6 +60,7 @@
     <javax.servlet.version>3.0.1</javax.servlet.version>
     <jstl.version>1.2</jstl.version>
     <guava.version>18.0</guava.version>
+    <commons.version>3.3.2</commons.version>
     <jackson.version>2.5.1</jackson.version>
 
     <!-- Database -->
@@ -168,6 +170,12 @@
       <version>${guava.version}</version>
     </dependency>
 
+    <dependency>
+      <groupId>org.apache.commons</groupId>
+      <artifactId>commons-lang3</artifactId>
+      <version>${commons.version}</version>
+    </dependency>
+
   </dependencies>
 
   <reporting>
@@ -228,6 +236,7 @@
   </build>
 
   <profiles>
+
     <profile>
       <id>checkstyle</id>
       <build>
