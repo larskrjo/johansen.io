@@ -20,6 +20,7 @@ public class ApiController {
     @RequestMapping(value = UriPaths.API_WILDCARD)
     public ResponseEntity<Void> wildcard() {
         LOG.info("Entered ApiController.wildcard");
+
         throw new PageNotFoundException(ExceptionMessages.MESSAGE_PAGE_NOT_FOUND);
     }
 }

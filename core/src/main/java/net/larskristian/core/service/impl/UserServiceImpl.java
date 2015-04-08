@@ -20,4 +20,10 @@ public class UserServiceImpl implements UserService {
         return userManager.getUser(userId);
     }
 
+    public void NOTHIN() {
+        if (true) {
+
+        }
+    }
+
 }
