@@ -2,7 +2,7 @@
 
 Install git 2.2.1
 Install java 8
-Install tomcat 8
+Install tomcat 8 
 // In conf/tomcat-users.xml add:
 // <role rolename="tomcat"/>
 // <role rolename="manager-gui"/>
