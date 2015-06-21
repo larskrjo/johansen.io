@@ -16,10 +16,6 @@ alias commit-and-push='commit-and-push-func'
 alias db-migrate='db-migrate-func'
 alias jshint='jshint-func'
 
-function jshint-func {
-	mvn -f web-app/pom.xml validate -P jshint
-}
-
 function help-func {
 	echo 
 	echo Git helper commands
@@ -55,6 +51,10 @@ function help-func {
 	echo
 	echo // Force push local my-branch changes to server
 	echo 	git push -f origin my-branch
+}
+
+function jshint-func {
+	mvn -f web-app/pom.xml validate -P jshint
 }
 
 function db-migrate-func {

@@ -1,4 +1,4 @@
-// Suggestion; Move the files downloaded to ~/larskristian.net
+ // Suggestion; Move the files downloaded to ~/larskristian.net
 
 Install git 2.2.1
 Install java 8
@@ -13,7 +13,7 @@ Install tomcat 8
 // Configure debug mode in tomcat
 // create file: bin/setenv.{sh/bat} with content: export JPDA_OPTS="-agentlib:jdwp=transport=dt_socket,address=8000,server=y,suspend=n"
 
-Install maven 3.2.5 
+Install maven 3.2.5
 Install ant 1.9.4
 Install mysql 5.6.19
 // in mysql shell login as root:  
