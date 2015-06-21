@@ -20,7 +20,7 @@ Install mysql 5.6.19
 // CREATE USER '<db.user>'@'localhost' IDENTIFIED BY '<db.pass>';
 // GRANT ALL PRIVILEGES ON * . * TO '<db.user>'@'localhost';
 // FLUSH PRIVILEGES;
-// logout of root
+// logout of root 
 // log in wit <db.user>
 // create two databases; lars_prod and lars_test
 
