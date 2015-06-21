@@ -26,7 +26,7 @@ Install mysql 5.6.19
 
 // Setup local settings.xml and scripts/.home
 Copy scripts/settings.xml.template to ~/.m2/settings.xml and fill out missing fields
-Edit scripts/.home to fit your installation path.
+Edit scripts/.home to fit your installation path. 
 
 // Then and add the following lines to your .bash_profile assuming you installed into ~/larskristian.net;
 source ~/larskristian.net/larskristian.net/scripts/.home
