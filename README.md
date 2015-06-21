@@ -1,2 +1,2 @@
 # larskristian.net
-My personal and professional website
+My personal and professional website!
