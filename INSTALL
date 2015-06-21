@@ -16,7 +16,7 @@ Install tomcat 8
 Install maven 3.2.5 
 Install ant 1.9.4
 Install mysql 5.6.19
-// in mysql shell login as root:
+// in mysql shell login as root: 
 // CREATE USER '<db.user>'@'localhost' IDENTIFIED BY '<db.pass>';
 // GRANT ALL PRIVILEGES ON * . * TO '<db.user>'@'localhost';
 // FLUSH PRIVILEGES;
