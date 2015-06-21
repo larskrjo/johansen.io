@@ -10,7 +10,7 @@ Install tomcat 8
 // <role rolename="admin-gui"/>
 // <user username="admin" password="Abcd1234" roles="tomcat,manager-gui,admin-gui,manager-script"/>
 
-// Configure debug mode in tomcat 
+// Configure debug mode in tomcat
 // create file: bin/setenv.{sh/bat} with content: export JPDA_OPTS="-agentlib:jdwp=transport=dt_socket,address=8000,server=y,suspend=n"
 
 Install maven 3.2.5
