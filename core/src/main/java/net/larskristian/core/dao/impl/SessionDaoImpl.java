@@ -7,7 +7,6 @@ import org.springframework.stereotype.Repository;
 
 import javax.transaction.Transactional;
 import java.util.List;
-import java.util.Objects;
 
 /**
  * @author Lars K. Johansen
@@ -27,7 +26,7 @@ public class SessionDaoImpl extends BaseDao<Session> implements SessionDao {
     @Override
     public Session getSession(String externalOrInternalId) {
         Session session = getOptional(externalOrInternalId);
-        if (!Objects.isNull(session)) {
+        if (session != null) {
             return session;
         }
 

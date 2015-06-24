@@ -36,8 +36,8 @@ public class SessionContextInterceptor implements HandlerInterceptor {
     public boolean preHandle(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse, Object handler) throws Exception {
         String sessionId = cookieManager.getCookie(CookieManager.SESSION_COOKIE_NAME, httpServletRequest);
 
-        Session session = null;
-        if (Objects.isNull(sessionId)) {
+        Session session;
+        if (sessionId == null) {
             // send user to login page!
             if (!Objects.equals(httpServletRequest.getParameter("loggedIn"), "true")) {
                 throw new InvalidSessionException(ExceptionMessages.MESSAGE_INVALID_SESSION);
@@ -49,7 +49,7 @@ public class SessionContextInterceptor implements HandlerInterceptor {
         }
 
         session = sessionManager.getCurrentSession(sessionId);
-        if (Objects.isNull(session)) {
+        if (session == null) {
             LOG.warn("Invalid session cookie was received. sessionId={}", sessionId);
             cookieManager.deleteCookie(CookieManager.SESSION_COOKIE_NAME, httpServletResponse);
             // send to login page!

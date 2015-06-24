@@ -219,9 +219,9 @@
             <configuration>
               <path>/</path>
               <update>true</update>
-              <url>http://localhost/manager/text</url>
-              <username>${tomcat.user}</username>
-              <password>${tomcat.pass}</password>
+              <url>http://localhost:${lars.tomcat.port}/manager/text</url>
+              <username>${lars.tomcat.user}</username>
+              <password>${lars.tomcat.pass}</password>
             </configuration>
           </plugin>
 

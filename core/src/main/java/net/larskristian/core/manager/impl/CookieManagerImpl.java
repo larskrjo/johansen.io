@@ -17,7 +17,7 @@ public class CookieManagerImpl implements CookieManager {
     @Override
     public String getCookie(String name, HttpServletRequest httpServletRequest) {
         Cookie[] cookies = httpServletRequest.getCookies();
-        if (java.util.Objects.isNull(cookies)) {
+        if (cookies == null) {
             return null;
         }
         for (Cookie cookie : httpServletRequest.getCookies()) {

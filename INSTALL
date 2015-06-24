@@ -17,18 +17,18 @@ Install maven 3.2.5
 Install ant 1.9.4
 Install mysql 5.6.19
 // in mysql shell login as root:  
-// CREATE USER '<db.user>'@'localhost' IDENTIFIED BY '<db.pass>';
-// GRANT ALL PRIVILEGES ON * . * TO '<db.user>'@'localhost';
+// CREATE USER '<lars.db.user>'@'localhost' IDENTIFIED BY '<lars.db.pass>';
+// GRANT ALL PRIVILEGES ON * . * TO '<lars.db.user>'@'localhost';
 // FLUSH PRIVILEGES;
 // logout of root 
-// log in wit <db.user>
+// log in wit <lars.db.user>
 // create two databases; lars_prod and lars_test
 
-// Do setup local settings.xml and scripts/.home
+// Setup local settings.xml and scripts/.home
 Copy scripts/settings.xml.template to ~/.m2/settings.xml and fill out missing fields
 Edit scripts/.home to fit your installation path.
 
-// Set global git config parameters 
+// Set global git config parameters
 git config --global user.name "Your Name"
 git config --global user.email "you@email.com"
 

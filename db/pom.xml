@@ -27,8 +27,8 @@
             <artifactId>flyway-maven-plugin</artifactId>
             <version>3.2.1</version>
             <configuration>
-              <user>${db.user}</user>
-              <password>${db.pass}</password>
+              <user>${lars.db.user}</user>
+              <password>${lars.db.pass}</password>
               <driver>com.mysql.jdbc.Driver</driver>
               <url>jdbc:mysql://localhost:3306/lars_dev</url>
             </configuration>
@@ -57,8 +57,8 @@
             <artifactId>flyway-maven-plugin</artifactId>
             <version>3.2.1</version>
             <configuration>
-              <user>${db.user}</user>
-              <password>${db.pass}</password>
+              <user>${lars.db.user}</user>
+              <password>${lars.db.pass}</password>
               <driver>com.mysql.jdbc.Driver</driver>
               <url>jdbc:mysql://localhost:3306/lars_test</url>
             </configuration>
@@ -87,8 +87,8 @@
             <artifactId>flyway-maven-plugin</artifactId>
             <version>3.2.1</version>
             <configuration>
-              <user>${db.user}</user>
-              <password>${db.pass}</password>
+              <user>${lars.db.user}</user>
+              <password>${lars.db.pass}</password>
               <driver>com.mysql.jdbc.Driver</driver>
               <url>jdbc:mysql://localhost:3306/lars_prod</url>
             </configuration>

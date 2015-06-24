@@ -10,7 +10,6 @@ import org.springframework.util.CollectionUtils;
 
 import java.io.Serializable;
 import java.util.List;
-import java.util.Objects;
 
 /**
  * @author Lars K. Johansen
@@ -49,11 +48,11 @@ public abstract class BaseDao<T> {
      */
     @SuppressWarnings("unchecked")
     protected T get(Serializable id) {
-        if (Objects.isNull(id)) {
+        if (id == null) {
             throw new DaoException(String.format(ExceptionMessages.MESSAGE_DAO_VALUE_NOT_PRESENT, "id"));
         }
         T value = (T) sessionFactory.getCurrentSession().get(ClassHelper.getGenericClass(this), id);
-        if (Objects.isNull(value)) {
+        if (value == null) {
             throw new DaoException(ExceptionMessages.MESSAGE_DAO_OBJECT_NOT_FOUND);
         }
         return value;
@@ -67,7 +66,7 @@ public abstract class BaseDao<T> {
      */
     @SuppressWarnings("unchecked")
     protected T getOptional(Serializable id) {
-        if (Objects.isNull(id)) {
+        if (id == null) {
             throw new DaoException(String.format(ExceptionMessages.MESSAGE_DAO_VALUE_NOT_PRESENT, "id"));
         }
         return  (T) sessionFactory.getCurrentSession().get(ClassHelper.getGenericClass(this), id);
@@ -82,16 +81,16 @@ public abstract class BaseDao<T> {
      */
     @SuppressWarnings("unchecked")
     protected List<T> getByFieldName(Serializable column, Serializable value) {
-        if (Objects.isNull(column)) {
+        if (column == null) {
             throw new DaoException(ExceptionMessages.MESSAGE_DAO_COLUMN_NOT_PRESENT);
-        } else if (Objects.isNull(value)) {
+        } else if (value == null) {
             throw new DaoException(String.format(ExceptionMessages.MESSAGE_DAO_VALUE_NOT_PRESENT, column.toString()));
         }
         String query = "SELECT * " +
                        "FROM " + ClassHelper.getGenericClass(this).getSimpleName() + " " +
                        "WHERE " + column.toString() + "='" + value.toString() + "'";
         List<T> list = (List<T>) sessionFactory.getCurrentSession().createSQLQuery(query).addEntity(ClassHelper.getGenericClass(this)).list();
-        if (Objects.isNull(list)) {
+        if (list == null) {
             throw new DaoException(ExceptionMessages.MESSAGE_DAO_OBJECT_NOT_FOUND);
         }
         return list;
