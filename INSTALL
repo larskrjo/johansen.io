@@ -28,7 +28,7 @@ Install mysql 5.6.19
 Copy scripts/settings.xml.template to ~/.m2/settings.xml and fill out missing fields
 Edit scripts/.home to fit your installation path.
 
-// Set global git config parameters
+// Set global git config parameters 
 git config --global user.name "Your Name"
 git config --global user.email "you@email.com"
 
