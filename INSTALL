@@ -24,9 +24,13 @@ Install mysql 5.6.19
 // log in wit <db.user>
 // create two databases; lars_prod and lars_test
 
-// Setup local settings.xml and scripts/.home
+// Do setup local settings.xml and scripts/.home
 Copy scripts/settings.xml.template to ~/.m2/settings.xml and fill out missing fields
-Edit scripts/.home to fit your installation path. 
+Edit scripts/.home to fit your installation path.
+
+// Set global git config parameters
+git config --global user.name "Your Name"
+git config --global user.email "you@email.com"
 
 // Then and add the following lines to your .bash_profile assuming you installed into ~/larskristian.net;
 source ~/larskristian.net/larskristian.net/scripts/.home
