@@ -8,6 +8,8 @@ alias rebuild='rebuild-func'
 alias ui='refreshui'
 alias refreshui='refreshui-func'
 alias fullbuild='fullbuild-func'
+alias start-tomcat='start-tomcat-func'
+alias stop-tomcat='stop-tomcat-func'
 alias restart-tomcat='restart-tomcat-func'
 alias gohome='gohome-func'
 alias logs='logs-func'
@@ -16,10 +18,10 @@ alias db-migrate='db-migrate-func'
 alias jshint='jshint-func'
 
 function help-func {
-	echo 
+	echo
 	echo Git helper commands
 	echo -------------------
-	echo 
+	echo
 	echo Common topic branch commands
 	echo // To squash your commits into one
 	echo 	squash
@@ -38,7 +40,7 @@ function help-func {
 	echo
 	echo // Add changes to the commit
 	echo	git add --all
-	echo 
+	echo
 	echo // Commit changes to local branch
 	echo 	git commit
 	echo
@@ -69,7 +71,7 @@ function db-migrate-func {
 }
 
 function squash-func {
-	echo Squashing commits for brach: $1
+	echo Squashing commits for branch: $1
 	# switch to master branch
 	git checkout master
 
@@ -130,18 +132,26 @@ function refreshdb-func {
 }
 
 function restart-tomcat-func {
-	echo Restarting tomcat started.
+	stop-tomcat-func;
+	start-tomcat-func;
+}
+
+function stop-tomcat-func {
+	echo Stopping tomcat...
+	current_dir=`pwd`
 	cd $LARSKRISTIAN_HOME/environment/tomcat/bin
-	
-	#apache_http_server_running=$(ps aux | grep httpd | grep root | wc -l)
-	#if [ $apache_http_server_running -gt 0 ]
-    #	then
-    #    	sudo apachectl stop
-	#fi
 	sh shutdown.sh
-	#sudo catalina.sh jpda start
-	sh startup.sh
-	echo Restarting tomcat finished.
+	cd $current_dir
+    echo Stopping tomcat finished!
+}
+
+function start-tomcat-func {
+	echo Starting tomcat...
+	current_dir=`pwd`
+	cd $LARSKRISTIAN_HOME/environment/tomcat/bin
+	sh catalina.sh jpda start
+	cd $current_dir
+    echo Starting tomcat finished!
 }
 
 function gohome-func {
