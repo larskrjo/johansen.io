@@ -71,7 +71,7 @@ function db-migrate-func {
 }
 
 function squash-func {
-	echo Squashing commits for brach: $1
+	echo Squashing commits for branch: $1
 	# switch to master branch
 	git checkout master
 
