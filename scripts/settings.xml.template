@@ -1,4 +1,4 @@
-<!-- personalize this file and copy it to ~/.m2/settings.xml -->
+<!-- personalize this file and copy it to your local maven ~/.m2/settings.xml -->
 <settings>
   <profiles>
     <profile>
@@ -10,7 +10,7 @@
         <lars.db.pass>your_db_password</lars.db.pass>
         <lars.tomcat.user>your_tomcat_username</lars.tomcat.user>
         <lars.tomcat.pass>your_tomcat_password</lars.tomcat.pass>
-        <lars.tomcat.port>80</lars.tomcat.port>
+        <lars.tomcat.port>your_tomcat_port</lars.tomcat.port>
       </properties>
     </profile>
   </profiles>
