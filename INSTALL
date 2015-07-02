@@ -1,4 +1,4 @@
- // Suggestion; Move the files downloaded to ~/larskristian.net
+// Suggestion; Move the files downloaded to ~/larskristian.net
 
 Install git 2.2.1
 Install java 8
@@ -12,6 +12,14 @@ Install tomcat 8
 
 // Configure debug mode in tomcat
 // create file: bin/setenv.{sh/bat} with content: export JPDA_OPTS="-agentlib:jdwp=transport=dt_socket,address=8000,server=y,suspend=n"
+
+// Configure proper logging in tomcat
+// Edit conf/server.xml and replace the current section with the following:
+// <Valve className="org.apache.catalina.valves.AccessLogValve" directory="logs"
+                  prefix="access" suffix=".log" renameOnRotate="true"
+                  pattern="%h %l %u %t &quot;%r&quot; %s %b" />
+// The logging will then be at logs/access.log and logs/catalina.out.
+
 
 Install maven 3.2.5
 Install ant 1.9.4
