@@ -16,6 +16,7 @@ public class ApiExceptionResponse {
     }
 
     public ApiExceptionResponse() {
+        // Default constructor
     }
 
     public int getStatusCode() {

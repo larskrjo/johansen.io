@@ -64,39 +64,6 @@
   <profiles>
 
     <profile>
-      <id>jshint</id>
-      <build>
-        <plugins>
-          <plugin>
-            <groupId>com.cj.jshintmojo</groupId>
-            <artifactId>jshint-maven-plugin</artifactId>
-            <version>1.6.0</version>
-            <executions>
-              <execution>
-                <phase>validate</phase>
-                <goals>
-                  <goal>lint</goal>
-                </goals>
-              </execution>
-            </executions>
-            <configuration>
-              <configFile>../scripts/jshint/.jshintrc</configFile>
-              <directories>
-                <directory>../web-content/resources/js</directory>
-              </directories>
-              <excludes>
-                <exclude>../web-content/resources/js/libs</exclude>
-              </excludes>
-              <reporter>checkstyle</reporter>
-              <reportFile>target/jshint.xml</reportFile>
-              <failOnError>true</failOnError>
-            </configuration>
-          </plugin>
-        </plugins>
-      </build>
-    </profile>
-
-    <profile>
       <id>dev,test,prod</id>
       <activation>
         <activeByDefault>true</activeByDefault>

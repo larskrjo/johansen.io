@@ -4,7 +4,7 @@ import net.larskristian.core.dao.SessionDao;
 import net.larskristian.core.dao.dto.AppType;
 import net.larskristian.core.dao.dto.Session;
 import net.larskristian.core.manager.SessionManager;
-import net.larskristian.framework.number.Numbers;
+import net.larskristian.framework.number.NumberUtility;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -15,7 +15,7 @@ import org.springframework.stereotype.Service;
 public class SessionManagerImpl implements SessionManager {
 
     @Autowired
-    SessionDao sessionDao;
+    private SessionDao sessionDao;
 
     @Override
     public Session getCurrentSession(String sessionId) {
@@ -26,7 +26,7 @@ public class SessionManagerImpl implements SessionManager {
     public Session createSession(String userId) {
         Session session = new Session();
         session.setAppType(AppType.NOTHING);
-        session.setExternalId(Numbers.getUUID());
+        session.setExternalId(NumberUtility.getUUID());
         session.setUserId(userId);
         sessionDao.saveSession(session);
         return session;

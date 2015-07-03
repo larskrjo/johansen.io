@@ -1,12 +1,12 @@
 package net.larskristian.core.exception.type.dao;
 
-import net.larskristian.core.exception.BaseException;
+import net.larskristian.core.exception.AbstractBaseException;
 import net.larskristian.core.exception.ExceptionMessages;
 
 /**
  * @author Lars K. Johansen
  */
-public class DaoException extends BaseException {
+public class DaoException extends AbstractBaseException {
 
     public DaoException(String message) {
         super(message);

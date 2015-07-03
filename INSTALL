@@ -20,7 +20,8 @@ Install tomcat 8
                   pattern="%h %l %u %t &quot;%r&quot; %s %b" />
 // The logging will then be at logs/access.log and logs/catalina.out.
 
-
+Install NodeJS 0.12.5
+// Install JSHint: sudo npm install -g jshint
 Install maven 3.2.5
 Install ant 1.9.4
 Install mysql 5.6.19

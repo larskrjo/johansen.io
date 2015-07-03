@@ -1,12 +1,12 @@
 package net.larskristian.core.exception.type;
 
-import net.larskristian.core.exception.BaseException;
+import net.larskristian.core.exception.AbstractBaseException;
 import net.larskristian.core.exception.ExceptionMessages;
 
 /**
  * @author Lars K. Johansen
  */
-public class PageNotFoundException extends BaseException {
+public class PageNotFoundException extends AbstractBaseException {
 
     public PageNotFoundException(String message) {
         super(message);

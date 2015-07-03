@@ -13,7 +13,7 @@ import org.springframework.stereotype.Component;
 public class UserMediationServiceImpl implements UserMediationService {
 
     @Autowired
-    UserService userService;
+    private UserService userService;
 
     @Override
     public User getUser(String userId) {

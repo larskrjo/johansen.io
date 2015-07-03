@@ -1,6 +1,6 @@
 package net.larskristian.ui.exception.resolver;
 
-import net.larskristian.core.exception.BaseException;
+import net.larskristian.core.exception.AbstractBaseException;
 import net.larskristian.core.exception.ExceptionMessages;
 import net.larskristian.core.exception.mapper.AbstractExceptionMapper;
 import net.larskristian.framework.path.UriPaths;
@@ -50,8 +50,8 @@ public class UIExceptionResolver {
         mav.addObject("hasError", true);
         mav.addObject("statusCode", httpServletResponse.getStatus());
         mav.addObject("errorCode",
-                exception instanceof BaseException ?
-                ((BaseException) exception).getErrorId() :
+                exception instanceof AbstractBaseException ?
+                ((AbstractBaseException) exception).getErrorId() :
                 ExceptionMessages.ERROR_EXCEPTION);
         mav.addObject("errorMessage", exception.getMessage());
         return mav;

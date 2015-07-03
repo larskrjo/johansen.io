@@ -2,11 +2,11 @@ package net.larskristian.core.dao.base;
 
 import net.larskristian.core.exception.ExceptionMessages;
 import net.larskristian.core.exception.type.dao.DaoException;
-import net.larskristian.framework.classes.ClassHelper;
+import net.larskristian.framework.classes.ClassUtility;
+import org.apache.commons.collections4.CollectionUtils;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.util.CollectionUtils;
 
 import java.io.Serializable;
 import java.util.List;
@@ -14,7 +14,7 @@ import java.util.List;
 /**
  * @author Lars K. Johansen
  */
-public abstract class BaseDao<T> {
+public abstract class AbstractBaseDao<T> {
 
     @Autowired
     private SessionFactory sessionFactory;
@@ -51,7 +51,7 @@ public abstract class BaseDao<T> {
         if (id == null) {
             throw new DaoException(String.format(ExceptionMessages.MESSAGE_DAO_VALUE_NOT_PRESENT, "id"));
         }
-        T value = (T) sessionFactory.getCurrentSession().get(ClassHelper.getGenericClass(this), id);
+        T value = (T) sessionFactory.getCurrentSession().get(ClassUtility.getGenericClass(this), id);
         if (value == null) {
             throw new DaoException(ExceptionMessages.MESSAGE_DAO_OBJECT_NOT_FOUND);
         }
@@ -69,7 +69,7 @@ public abstract class BaseDao<T> {
         if (id == null) {
             throw new DaoException(String.format(ExceptionMessages.MESSAGE_DAO_VALUE_NOT_PRESENT, "id"));
         }
-        return  (T) sessionFactory.getCurrentSession().get(ClassHelper.getGenericClass(this), id);
+        return  (T) sessionFactory.getCurrentSession().get(ClassUtility.getGenericClass(this), id);
     }
 
     /**
@@ -87,9 +87,9 @@ public abstract class BaseDao<T> {
             throw new DaoException(String.format(ExceptionMessages.MESSAGE_DAO_VALUE_NOT_PRESENT, column.toString()));
         }
         String query = "SELECT * " +
-                       "FROM " + ClassHelper.getGenericClass(this).getSimpleName() + " " +
+                       "FROM " + ClassUtility.getGenericClass(this).getSimpleName() + " " +
                        "WHERE " + column.toString() + "='" + value.toString() + "'";
-        List<T> list = (List<T>) sessionFactory.getCurrentSession().createSQLQuery(query).addEntity(ClassHelper.getGenericClass(this)).list();
+        List<T> list = (List<T>) sessionFactory.getCurrentSession().createSQLQuery(query).addEntity(ClassUtility.getGenericClass(this)).list();
         if (list == null) {
             throw new DaoException(ExceptionMessages.MESSAGE_DAO_OBJECT_NOT_FOUND);
         }

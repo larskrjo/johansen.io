@@ -5,7 +5,11 @@ import java.lang.reflect.ParameterizedType;
 /**
  * @author Lars K. Johansen
  */
-public class ClassHelper {
+public final class ClassUtility {
+
+    private ClassUtility() {
+        // Utility class
+    }
 
     public static Class getGenericClass(Object o) {
         ParameterizedType parameterizedType = (ParameterizedType) o.getClass().getGenericSuperclass();

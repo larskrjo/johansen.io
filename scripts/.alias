@@ -15,7 +15,9 @@ alias gohome='gohome-func'
 alias logs='logs-func'
 alias access-logs='access-logs-func'
 alias db-migrate='db-migrate-func'
-alias jshint='jshint-func'
+alias lint='jshint-func'
+alias checkstyle='checkstyle-func'
+alias pmd='pmd-func'
 
 function help-func {
 	echo
@@ -52,10 +54,6 @@ function help-func {
 	echo
 	echo // Force push local my-branch changes to server
 	echo 	git push -f origin my-branch
-}
-
-function jshint-func {
-	mvn -f web-app/pom.xml validate -P jshint
 }
 
 function db-migrate-func {
@@ -179,4 +177,19 @@ function utest-func {
 function refreshui-func {
 	gohome;
 	mvn -f web-app/pom.xml package tomcat7:deploy -Pui
+}
+
+function checkstyle-func {
+	gohome;
+	mvn checkstyle:check -Pcheckstyle
+}
+
+function pmd-func {
+	gohome;
+	mvn pmd:check -Ppmd
+}
+
+function jshint-func {
+	gohome;
+	jshint --exclude-path scripts/jshint/.jshintignore --config scripts/jshint/.jshintrc web-content/resources/js
 }

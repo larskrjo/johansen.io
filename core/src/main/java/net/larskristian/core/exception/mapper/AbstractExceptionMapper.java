@@ -2,7 +2,7 @@ package net.larskristian.core.exception.mapper;
 
 import com.google.common.base.Objects;
 import net.larskristian.core.exception.mapper.response.ApiExceptionResponse;
-import net.larskristian.framework.classes.ClassHelper;
+import net.larskristian.framework.classes.ClassUtility;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletResponse;
@@ -13,7 +13,7 @@ import javax.servlet.http.HttpServletResponse;
 public abstract class AbstractExceptionMapper<T extends Exception> {
 
     public boolean supports(Exception exception) {
-        return Objects.equal(ClassHelper.getGenericClass(this).getName(),
+        return Objects.equal(ClassUtility.getGenericClass(this).getName(),
                 exception.getClass().getName());
     }
 

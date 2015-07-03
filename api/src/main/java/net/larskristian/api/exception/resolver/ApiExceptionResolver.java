@@ -1,6 +1,6 @@
 package net.larskristian.api.exception.resolver;
 
-import net.larskristian.core.exception.BaseException;
+import net.larskristian.core.exception.AbstractBaseException;
 import net.larskristian.core.exception.ExceptionMessages;
 import net.larskristian.core.exception.mapper.AbstractExceptionMapper;
 import net.larskristian.core.exception.mapper.response.ApiExceptionResponse;
@@ -49,8 +49,8 @@ public class ApiExceptionResolver {
     private ApiExceptionResponse createApiExceptionResponse(Exception exception, HttpServletResponse httpServletResponse) {
         ApiExceptionResponse apiExceptionResponse = new ApiExceptionResponse();
         apiExceptionResponse.setStatusCode(httpServletResponse.getStatus());
-        apiExceptionResponse.setErrorCode(exception instanceof BaseException ?
-                ((BaseException) exception).getErrorId() :
+        apiExceptionResponse.setErrorCode(exception instanceof AbstractBaseException ?
+                ((AbstractBaseException) exception).getErrorId() :
                 ExceptionMessages.ERROR_EXCEPTION);
         apiExceptionResponse.setErrorMessage(exception.getMessage());
         return apiExceptionResponse;

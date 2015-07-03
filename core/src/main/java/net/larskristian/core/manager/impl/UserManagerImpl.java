@@ -13,7 +13,7 @@ import org.springframework.stereotype.Service;
 public class UserManagerImpl implements UserManager {
 
     @Autowired
-    UserDao userDao;
+    private UserDao userDao;
 
     @Override
     public User getUser(String userId) {

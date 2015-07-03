@@ -1,7 +1,7 @@
 package net.larskristian.core.dao.impl;
 
 import net.larskristian.core.dao.SessionDao;
-import net.larskristian.core.dao.base.BaseDao;
+import net.larskristian.core.dao.base.AbstractBaseDao;
 import net.larskristian.core.dao.dto.Session;
 import org.springframework.stereotype.Repository;
 
@@ -13,7 +13,7 @@ import java.util.List;
  */
 @Transactional
 @Repository
-public class SessionDaoImpl extends BaseDao<Session> implements SessionDao {
+public class SessionDaoImpl extends AbstractBaseDao<Session> implements SessionDao {
 
     private static final String USER_ID = "userId";
     private static final String EXTERNAL_ID = "externalId";

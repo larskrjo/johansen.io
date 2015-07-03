@@ -34,6 +34,6 @@ public class TimerInterceptor implements HandlerInterceptor {
 
     @Override
     public void afterCompletion(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse, Object handler, Exception e) throws Exception {
-
+        // Nothing to do
     }
 }
