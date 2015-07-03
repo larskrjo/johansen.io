@@ -1,11 +1,12 @@
 define(['helper/Util',
+        'router/base/BaseRouter',
         'models/user/UserModel',
         'views/user/UserView',
         'views/error/AlertView'],
 
-  function(Util, UserModel, UserView, AlertView) {
+  function(Util, BaseRouter, UserModel, UserView, AlertView) {
 
-    var Router = Util.Backbone.Router.extend({
+    var Router = BaseRouter.extend({
 
       routes: {
         '': 'home',
@@ -51,7 +52,7 @@ define(['helper/Util',
     };
 
     return {
-      initialize : initialize
+      initialize: initialize
     };
   }
 
