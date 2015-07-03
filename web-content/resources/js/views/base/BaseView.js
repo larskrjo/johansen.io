@@ -1,3 +1,6 @@
+/**
+ * Created by Lars Johansen
+ */
 define(['helper/Util',
         'views/error/AlertView'],
 

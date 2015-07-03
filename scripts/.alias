@@ -99,6 +99,11 @@ function rebase-func {
 }
 
 function rebuild-func {
+	# Clean up last deploy
+	java_proc=`ps | grep '[/]Library/Java' | awk '{print $1}'`
+	kill -9 $java_proc
+	start-tomcat-func;
+
 	# Rebuild codebase
 	echo ////////////////////////////
 	echo Rebuilding codebase started.
@@ -108,6 +113,28 @@ function rebuild-func {
 	echo /////////////////////////////
 	echo Rebuilding codebase finished.
 	echo /////////////////////////////
+	sleep 1
+	echo Wait for 10 seconds...
+	sleep 1
+	echo Wait for 9 seconds...
+	sleep 1
+	echo Wait for 8 seconds...
+	sleep 1
+	echo Wait for 7 seconds...
+	sleep 1
+	echo Wait for 6 seconds...
+	sleep 1
+	echo Wait for 5 seconds...
+	sleep 1
+	echo Wait for 4 seconds...
+	sleep 1
+	echo Wait for 3 seconds...
+	sleep 1
+	echo Wait for 2 seconds...
+	sleep 1
+	echo Wait for 1 second...
+	sleep 1
+	echo Go!!!
 }
 
 function fullbuild-func {
