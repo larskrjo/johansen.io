@@ -37,10 +37,6 @@ Install mysql 5.6.19
 Copy scripts/settings.xml.template to ~/.m2/settings.xml and fill out missing fields
 Edit scripts/.home to fit your installation path.
 
-// Set global git config parameters
-git config --global user.name "Your Name"
-git config --global user.email "you@email.com"
-
 // Add the following line to /etc/hosts
 127.0.0.1 website.net
 
@@ -52,6 +48,10 @@ source ~/larskristian.net/larskristian.net/scripts/.mysql
 source ~/larskristian.net/larskristian.net/scripts/.tomcat
 source ~/larskristian.net/larskristian.net/scripts/.maven
 source ~/larskristian.net/larskristian.net/scripts/.ant
+
+// Set global git config parameters in local  ~/larskristian.net/larskristian.net/.bash_profile
+git config --global user.name "Your Name"
+git config --global user.email "you@email.com"
 
 // Add the following line to the end of ~/.bash_profile:
 PROMPT_COMMAND='if [[ "$folder" != "$PWD" && "$PWD" != "$HOME" && -e .bash_profile ]]; then folder="$PWD"; . .bash_profile; fi'
