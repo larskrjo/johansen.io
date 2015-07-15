@@ -31,7 +31,7 @@ Install mysql 5.6.19
 // FLUSH PRIVILEGES;
 // logout of root 
 // log in wit <lars.db.user>
-// create two databases; lars_prod and lars_test
+// create two databases; lars_prod, lars_test and lars_dev
 
 // Setup local settings.xml and scripts/.home
 Copy scripts/settings.xml.template to ~/.m2/settings.xml and fill out missing fields
@@ -41,7 +41,10 @@ Edit scripts/.home to fit your installation path.
 git config --global user.name "Your Name"
 git config --global user.email "you@email.com"
 
-// Then and add the following lines to your .bash_profile assuming you installed into ~/larskristian.net;
+// Add the following line to /etc/hosts
+127.0.0.1 website.net
+
+// Then add the following lines to your .bash_profile into ~/larskristian.net/larskristian.net assuming you installed into ~/larskristian.net;
 source ~/larskristian.net/larskristian.net/scripts/.home
 source ~/larskristian.net/larskristian.net/scripts/.alias
 source ~/larskristian.net/larskristian.net/scripts/.gitprompt
@@ -49,3 +52,6 @@ source ~/larskristian.net/larskristian.net/scripts/.mysql
 source ~/larskristian.net/larskristian.net/scripts/.tomcat
 source ~/larskristian.net/larskristian.net/scripts/.maven
 source ~/larskristian.net/larskristian.net/scripts/.ant
+
+// Add the following line to the end of ~/.bash_profile:
+PROMPT_COMMAND='if [[ "$folder" != "$PWD" && "$PWD" != "$HOME" && -e .bash_profile ]]; then folder="$PWD"; . .bash_profile; fi'
