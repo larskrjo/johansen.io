@@ -38,7 +38,7 @@ Copy scripts/settings.xml.template to ~/.m2/settings.xml and fill out missing fi
 Edit scripts/.home to fit your installation path.
 
 // Add the following line to /etc/hosts
-127.0.0.1 website.net
+127.0.0.1 test.larskristian.net
 
 // Then add the following lines to your .bash_profile into ~/larskristian.net/larskristian.net assuming you installed into ~/larskristian.net;
 source ~/larskristian.net/larskristian.net/scripts/.home
@@ -46,7 +46,11 @@ source ~/larskristian.net/larskristian.net/scripts/.alias
 source ~/larskristian.net/larskristian.net/scripts/.gitprompt
 source ~/larskristian.net/larskristian.net/scripts/.tomcat
 source ~/larskristian.net/larskristian.net/scripts/.maven
-// Remember to adjust these files to fit your environment
+export FACEBOOK_APP_ID=MY_APP_ID
+export FACEBOOK_APP_ID_SECRET=MY_APP_ID_SECRET
+
+// Remember to adjust these files to fit your environment and
+// replace MY_APP_ID and MY_APP_ID_SECRET with your facebook app details.
 
 // Create a folder in $TOMCAT_HOME/lib/endorsed
 
@@ -60,3 +64,5 @@ git config --global user.email "you@email.com"
 
 // Add the following line to the end of ~/.bash_profile:
 source ~/larskristian.net/larskristian.net/scripts/.lars_bash_profile
+
+// Install Java 1.8.0_45 and point scripts/.home to the right location

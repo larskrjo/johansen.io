@@ -4,5 +4,6 @@ CREATE TABLE Session (
   userId char(36) NOT NULL,
   appType varchar(512) NOT NULL,
   PRIMARY KEY (`id`),
-  UNIQUE KEY `externalId` (`externalId`)
+  UNIQUE KEY `externalId` (`externalId`),
+  INDEX user_index (`userId`)
 )

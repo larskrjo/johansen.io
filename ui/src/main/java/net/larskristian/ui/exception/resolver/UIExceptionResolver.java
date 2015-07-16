@@ -1,9 +1,9 @@
 package net.larskristian.ui.exception.resolver;
 
-import net.larskristian.core.exception.AbstractBaseException;
-import net.larskristian.core.exception.ExceptionMessages;
-import net.larskristian.core.exception.mapper.AbstractExceptionMapper;
-import net.larskristian.framework.path.UriPaths;
+import net.larskristian.framework.exception.AbstractBaseException;
+import net.larskristian.framework.exception.ExceptionMessages;
+import net.larskristian.framework.exception.mapper.AbstractExceptionMapper;
+import net.larskristian.framework.uri.UriPaths;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -47,8 +47,7 @@ public class UIExceptionResolver {
 
     private ModelAndView createModelAndViewErrors(Exception exception, HttpServletResponse httpServletResponse) {
         ModelAndView mav = new ModelAndView(UriPaths.JSP_HOME);
-        mav.addObject("hasError", true);
-        mav.addObject("statusCode", httpServletResponse.getStatus());
+        mav.addObject("errorStatusCode", httpServletResponse.getStatus());
         mav.addObject("errorCode",
                 exception instanceof AbstractBaseException ?
                 ((AbstractBaseException) exception).getErrorId() :

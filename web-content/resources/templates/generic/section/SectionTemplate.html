@@ -1,0 +1,32 @@
+<div class="panel panel-default section-content-frame {{#if noStyle}}no-style{{/if}}">
+  {{#if header}}
+  <div class="panel-heading">
+    {{#if noStyle}}
+    <p class="heading">
+      {{#if i18n.heading-glyphicon}}<span class="glyphicon glyphicon-{{i18n.heading-glyphicon}}" aria-hidden="true"></span> {{/if}}
+      {{#if i18n.heading-faicon}}<i class="fa fa-{{i18n.heading-faicon}}"></i> {{/if}}
+      {{i18n.header-text}}
+    </p>
+    {{else}}
+    <h3>
+      {{#if i18n.heading-glyphicon}}<span class="glyphicon glyphicon-{{i18n.heading-glyphicon}}" aria-hidden="true"></span> {{/if}}
+      {{#if i18n.heading-faicon}}<i class="fa fa-{{i18n.heading-faicon}}"></i> {{/if}}
+      {{i18n.header-text}}
+    </h3>
+    {{/if}}
+  </div>
+  {{/if}}
+  {{#if content}}
+  <div class="panel-body {{noMargin}}">
+    {{#if i18n.content-text}}<p>{{i18n.content-text}}</p>{{/if}}
+  </div>
+  {{/if}}
+  {{#if footer}}
+  <div class="panel-footer">
+    {{#if footerBtn}}<div id="{{footerBtn}}" class="btn btn-primary">
+    {{#if i18n.footer-glyphicon}}<span class="glyphicon glyphicon-{{i18n.footer-glyphicon}}" aria-hidden="true"></span> {{/if}}
+    {{#if i18n.footer-faicon}}<i class="fa fa-{{i18n.footer-faicon}}"></i> {{/if}}
+    {{i18n.footer-btn-text}}</div>{{/if}} {{#if i18n.footer-text}}<p>{{i18n.footer-text}}</p>{{/if}}
+  </div>
+  {{/if}}
+</div>

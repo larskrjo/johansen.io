@@ -20,4 +20,22 @@ public class UserServiceImpl implements UserService {
         return userManager.getUser(userId);
     }
 
+    @Override
+    public User getUserWithEmail(String email) {
+        return userManager.getUserWithEmail(email);
+    }
+
+    @Override
+    public User getUserWithEmailAndPassword(String email, String password) {
+        return userManager.getUserWithEmailAndPassword(email, password);
+    }
+
+    public User createUser(User user) {
+        return userManager.createUser(user);
+    }
+
+    public User updateUser(String email, User user) {
+        return userManager.updateUser(email, user);
+    }
+
 }

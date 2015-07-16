@@ -1,15 +1,23 @@
 define(['helper/Util',
-        'models/base/BaseModel'],
+      'models/generic/base/BaseModel'],
 
-  function(Util, BaseModel){
+    function(Util, BaseModel){
 
-    var UserModel = BaseModel.extend({
+      var UserModel = BaseModel.extend({
 
-      urlRoot: Util.Paths.URI_USERS
+        urlRoot: Util.Paths.URI_API_USER_ME,
 
-    });
+        defaults: {
+          email: '',
+          firstName: '',
+          lastName: '',
+          profilePicture: '',
+          locale: ''
+        }
 
-    return UserModel;
-  }
+      });
+
+      return UserModel;
+    }
 
 );

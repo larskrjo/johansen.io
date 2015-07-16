@@ -1,0 +1,48 @@
+<row>
+  <div class="col-xs-1 col-sm-3 col-md-4">
+
+  </div>
+  <div class="col-xs-10 col-sm-6 col-md-4">
+
+    <br /><br /><br /><br />
+
+    <div id="account-info-template_heading" class="profile-picture-container">
+      <img id="account-info-template_profile-picture" src="{{profilePicture}}" height="200" width="200" alt="{{firstName}}" class="img-circle">
+    </div>
+
+    <div id="account-info-template_content_info" class="list-group">
+      <a class="list-group-item">
+        <h4 class="list-group-item-heading">{{firstName}}</h4>
+        <p class="list-group-item-text">{{i18n.firstName}}</p>
+      </a>
+      <a class="list-group-item">
+        <h4 class="list-group-item-heading">{{lastName}}</h4>
+        <p class="list-group-item-text">{{i18n.lastName}}</p>
+      </a>
+      <a class="list-group-item">
+        <h4 class="list-group-item-heading">{{email}}</h4>
+        <p class="list-group-item-text">{{i18n.email}}</p>
+      </a>
+      <a class="list-group-item">
+        <h4 class="list-group-item-heading">{{locale}}</h4>
+        <p class="list-group-item-text">{{i18n.locale}}</p>
+      </a>
+    </div>
+
+    <div id="account-info-template_content_menu" class="panel panel-default">
+      <div class="panel-body">
+        <form id="logout-form">
+          <div id="logout-submit" class="btn btn-danger">{{i18n.signOut}}</div>
+        </form>
+        <div id="flag-us" class="btn btn-default flag">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div>
+        <div id="flag-no" class="btn btn-default flag">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div>
+      </div>
+    </div>
+
+    <br /><br /><br /><br /><br /><br /><br />
+
+  </div>
+  <div class="col-xs-1 col-sm-3 col-md-4">
+
+  </div>
+</row>

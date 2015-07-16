@@ -24,9 +24,10 @@ public interface CookieManager {
      * @param name The name for the cookie.
      * @param value The value for the cookie.
      * @param secure Flag that decides whether this cookie should be set via HTTPS.
+     * @param httpServletRequest The httpServletRequest from which the request came from.
      * @param httpServletResponse The httpServletResponse to set the cookie at.
      */
-    void addSessionCookie(String name, String value, boolean secure, HttpServletResponse httpServletResponse);
+    void addSessionCookie(String name, String value, boolean secure, HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse);
 
     /**
      * Deletes the cookie with specified {@code name} at the {@code httpServletResponse}.

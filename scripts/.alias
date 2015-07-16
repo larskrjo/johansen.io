@@ -3,10 +3,9 @@ alias squash='squash-func `git rev-parse --abbrev-ref HEAD`'
 alias rebase='rebase-func `git rev-parse --abbrev-ref HEAD`'
 alias utest='utest-func'
 alias itest='itest-func'
-alias refreshdb='refreshdb-func'
+alias db='refreshdb-func'
 alias rebuild='rebuild-func'
-alias ui='refreshui'
-alias refreshui='refreshui-func'
+alias ui='refreshui-func'
 alias fullbuild='fullbuild-func'
 alias start-tomcat='start-tomcat-func'
 alias stop-tomcat='stop-tomcat-func'
@@ -99,10 +98,8 @@ function rebase-func {
 }
 
 function rebuild-func {
-	# Clean up last deploy
-	java_proc=`ps | grep '[/]Library/Java' | awk '{print $1}'`
-	kill -9 $java_proc
-	start-tomcat-func;
+	# Force quit tomcat
+	restart-tomcat;
 
 	# Rebuild codebase
 	echo ////////////////////////////
@@ -141,7 +138,7 @@ function fullbuild-func {
     # Rebuild
 	rebuild;
 	# Refresh data in DB
-	refreshdb;
+	db;
 }
 
 function refreshdb-func {
@@ -163,10 +160,13 @@ function restart-tomcat-func {
 
 function stop-tomcat-func {
 	echo Stopping tomcat...
-	current_dir=`pwd`
-	cd $LARSKRISTIAN_HOME/environment/tomcat/bin
-	sh shutdown.sh
-	cd $current_dir
+    kill $(ps -ef | grep java | grep larskristian.net | awk '{print $2}') >/dev/null 2>&1
+    kill -9 $(ps -ef | grep java | grep larskristian.net | awk '{print $2}') >/dev/null 2>&1
+    NUMPID=$(ps -ef | grep java | grep larskristian.net | wc -l)
+    if [ $NUMPID -gt 0 ]; then
+        echo "There are still $NUMPID pid(s) matching the process you were trying to kill."
+        echo "Try again?"
+    fi
     echo Stopping tomcat finished!
 }
 
@@ -203,6 +203,7 @@ function utest-func {
 
 function refreshui-func {
 	gohome;
+	restart-tomcat;
 	mvn -f web-app/pom.xml package tomcat7:deploy -Pui
 }
 

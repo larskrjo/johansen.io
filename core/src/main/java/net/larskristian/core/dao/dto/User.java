@@ -4,11 +4,7 @@ import com.google.common.base.MoreObjects;
 import com.google.common.base.Objects;
 import org.hibernate.annotations.GenericGenerator;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.io.Serializable;
 
 /**
@@ -26,14 +22,23 @@ public class User implements Serializable {
     @Column(name = "id", columnDefinition = "char")
     private String id;
 
+    @Column(name = "email")
+    private String email;
+
     @Column(name = "firstName")
     private String firstName;
 
     @Column(name = "lastName")
     private String lastName;
 
-    @Column(name = "email")
-    private String email;
+    @Column(name = "profilePicture")
+    private String profilePicture;
+
+    @Column(name = "locale")
+    private String locale;
+
+    @Column(name = "password")
+    private String password;
 
     public String getId() {
         return id;
@@ -41,6 +46,14 @@ public class User implements Serializable {
 
     public void setId(String id) {
         this.id = id;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
     }
 
     public String getFirstName() {
@@ -59,12 +72,28 @@ public class User implements Serializable {
         this.lastName = lastName;
     }
 
-    public String getEmail() {
-        return email;
+    public String getProfilePicture() {
+        return profilePicture;
     }
 
-    public void setEmail(String email) {
-        this.email = email;
+    public void setProfilePicture(String profilePicture) {
+        this.profilePicture = profilePicture;
+    }
+
+    public String getLocale() {
+        return locale;
+    }
+
+    public void setLocale(String locale) {
+        this.locale = locale;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
     }
 
     @Override
@@ -77,23 +106,30 @@ public class User implements Serializable {
         }
         final User other = (User) obj;
         return Objects.equal(this.id, other.id)
+                && Objects.equal(this.email, other.email)
                 && Objects.equal(this.firstName, other.firstName)
                 && Objects.equal(this.lastName, other.lastName)
-                && Objects.equal(this.email, other.email);
+                && Objects.equal(this.profilePicture, other.profilePicture)
+                && Objects.equal(this.locale, other.locale)
+                && Objects.equal(this.password, other.password);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hashCode(this.id, this.firstName, this.lastName, this.email);
+        return Objects.hashCode(this.id, this.email, this.firstName, this.lastName, this.profilePicture, this.locale,
+                this.password);
     }
 
     @Override
     public String toString() {
         return MoreObjects.toStringHelper(this)
                 .add("id", id)
+                .add("email", email)
                 .add("firstName", firstName)
                 .add("lastName", lastName)
-                .add("email", email)
+                .add("profilePicture", profilePicture)
+                .add("locale", locale)
+                .add("password", password)
                 .toString();
     }
 }

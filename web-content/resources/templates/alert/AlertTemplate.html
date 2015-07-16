@@ -1,0 +1,23 @@
+<div class="content">
+  <div class="container alert-top-container">
+    <div class="panel panel-danger">
+      <div class="panel-heading expandable">
+        <div class="panel-title">
+          <div data-toggle="collapse" data-target="#alert-error-details" class="collapsed alert-content">
+            <strong>{{i18n.error}}</strong> {{i18n.wrongHappened}}
+          </div>
+        </div>
+      </div>
+      <div id="alert-error-details" class="panel-collapse collapse">
+        <div class="panel-body">
+          <p class="alert-status-code text-center">
+            {{errorStatusCode}}
+          </p>
+          <p class="text-center">
+            {{errorMessage}}
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

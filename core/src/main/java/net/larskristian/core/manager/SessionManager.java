@@ -9,8 +9,8 @@ public interface SessionManager {
 
     Session getCurrentSession(String sessionId);
 
-    Session createSession(String userId);
+    void createSession(String userId);
 
-    void saveOrUpdateSession(Session session);
+    void deleteSession(Session session);
 
 }

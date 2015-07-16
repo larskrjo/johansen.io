@@ -27,6 +27,7 @@
         <exclude name="AtLeastOneConstructor"/>
         <exclude name="DataflowAnomalyAnalysis"/>
         <exclude name="AvoidLiteralsInIfCondition"/>
+        <exclude name="UseConcurrentHashMap"/>
     </rule>
     <rule ref="rulesets/java/coupling.xml">
         <exclude name="LawOfDemeter"/>

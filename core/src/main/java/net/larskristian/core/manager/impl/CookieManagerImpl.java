@@ -2,6 +2,7 @@ package net.larskristian.core.manager.impl;
 
 import com.google.common.base.Objects;
 import net.larskristian.core.manager.CookieManager;
+import net.larskristian.framework.uri.UriPaths;
 import org.springframework.stereotype.Service;
 
 import javax.servlet.http.Cookie;
@@ -29,9 +30,11 @@ public class CookieManagerImpl implements CookieManager {
     }
 
     @Override
-    public void addSessionCookie(String name, String value, boolean secure, HttpServletResponse httpServletResponse) {
+    public void addSessionCookie(String name, String value, boolean secure, HttpServletRequest httpServletRequest,
+                                 HttpServletResponse httpServletResponse) {
         Cookie cookie = new Cookie(name, value);
-        cookie.setSecure(secure);
+        cookie.setPath(UriPaths.ROOT);
+        cookie.setSecure(httpServletRequest.isSecure());
         cookie.setMaxAge(-1); // Session scope
         httpServletResponse.addCookie(cookie);
     }

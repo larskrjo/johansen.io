@@ -1,6 +1,6 @@
 package net.larskristian.ui;
 
-import net.larskristian.framework.path.UriPaths;
+import net.larskristian.framework.uri.UriPaths;
 import net.larskristian.test.integration.base.BaseIntegrationTest;
 import org.junit.Test;
 

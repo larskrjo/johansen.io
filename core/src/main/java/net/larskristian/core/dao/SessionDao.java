@@ -38,7 +38,7 @@ public interface SessionDao {
      *
      * @param   session Session to be saved or updated.
      */
-    void saveOrUpdateSession(Session session);
+    void updateSession(Session session);
 
     /**
      * Deletes the session.

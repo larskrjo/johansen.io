@@ -1,5 +1,6 @@
 package net.larskristian.core.context;
 
+import net.larskristian.core.dao.dto.AppType;
 import net.larskristian.core.dao.dto.Session;
 
 /**
@@ -8,4 +9,15 @@ import net.larskristian.core.dao.dto.Session;
 public interface SessionContext {
 
     void enterContext(Session session);
+
+    String getUserId();
+
+    String getSessionId();
+
+    String getExternalSessionId();
+
+    AppType getAppType();
+
+    boolean isAuthenticated();
+
 }

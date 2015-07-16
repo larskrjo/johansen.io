@@ -20,27 +20,27 @@ public class SessionDaoImpl extends AbstractBaseDao<Session> implements SessionD
 
     @Override
     public List<Session> getSessions(String userId) {
-        return getByFieldName(USER_ID, userId);
+        return readByFieldName(USER_ID, userId);
     }
 
     @Override
     public Session getSession(String externalOrInternalId) {
-        Session session = getOptional(externalOrInternalId);
+        Session session = read(externalOrInternalId);
         if (session != null) {
             return session;
         }
 
-        return getByUniqueFieldName(EXTERNAL_ID, externalOrInternalId);
+        return readUniqueByFieldName(EXTERNAL_ID, externalOrInternalId);
     }
 
     @Override
     public void saveSession(Session session) {
-        save(session);
+        create(session);
     }
 
     @Override
-    public void saveOrUpdateSession(Session session) {
-        saveOrUpdate(session);
+    public void updateSession(Session session) {
+        update(session);
     }
 
     @Override

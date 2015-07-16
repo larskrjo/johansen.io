@@ -1,9 +1,9 @@
 package net.larskristian.api.exception.resolver;
 
-import net.larskristian.core.exception.AbstractBaseException;
-import net.larskristian.core.exception.ExceptionMessages;
-import net.larskristian.core.exception.mapper.AbstractExceptionMapper;
-import net.larskristian.core.exception.mapper.response.ApiExceptionResponse;
+import net.larskristian.framework.exception.AbstractBaseException;
+import net.larskristian.framework.exception.ExceptionMessages;
+import net.larskristian.framework.exception.mapper.AbstractExceptionMapper;
+import net.larskristian.framework.exception.mapper.response.ApiExceptionResponse;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -48,7 +48,7 @@ public class ApiExceptionResolver {
 
     private ApiExceptionResponse createApiExceptionResponse(Exception exception, HttpServletResponse httpServletResponse) {
         ApiExceptionResponse apiExceptionResponse = new ApiExceptionResponse();
-        apiExceptionResponse.setStatusCode(httpServletResponse.getStatus());
+        apiExceptionResponse.setErrorStatusCode(httpServletResponse.getStatus());
         apiExceptionResponse.setErrorCode(exception instanceof AbstractBaseException ?
                 ((AbstractBaseException) exception).getErrorId() :
                 ExceptionMessages.ERROR_EXCEPTION);
