@@ -99,10 +99,8 @@ function rebase-func {
 }
 
 function rebuild-func {
-	# Clean up last deploy
-	java_proc=`ps | grep '[/]Library/Java' | awk '{print $1}'`
-	kill -9 $java_proc
-	start-tomcat-func;
+	# Force quit tomcat
+	force-stop-tomcat-func;
 
 	# Rebuild codebase
 	echo ////////////////////////////
@@ -170,6 +168,13 @@ function stop-tomcat-func {
     echo Stopping tomcat finished!
 }
 
+function force-stop-tomcat-func {
+    # Clean up last deploy
+    java_proc=`ps | grep '[/]Library/Java' | awk '{print $1}'`
+    kill -9 $java_proc
+    start-tomcat-func;
+}
+
 function start-tomcat-func {
 	echo Starting tomcat...
 	current_dir=`pwd`
@@ -203,6 +208,7 @@ function utest-func {
 
 function refreshui-func {
 	gohome;
+	force-stop-tomcat-func;
 	mvn -f web-app/pom.xml package tomcat7:deploy -Pui
 }
 

@@ -5,7 +5,7 @@ define(['helper/Util',
 
     var AlertView = Util.Backbone.View.extend({
 
-      el: Util.$('.in-page-alert').length ? '.in-page-alert' : '.body-alert',
+      el: Util.$('.in-page-alert').length ? '.in-page-alert' : '#body',
       template: Util.Handlebars.compile(AlertTemplate),
 
       compileTemplate: function(response) {

@@ -1,6 +1,22 @@
-<p>
-    Error occurred with the following data:</br>
-    Status Code: {{statusCode}}</br>
-    Error Code: {{errorCode}}</br>
-    Error Message: {{errorMessage}}
-</p>
+<div class="container">
+  <div class="panel panel-danger">
+    <div class="panel-heading expandable">
+      <div class="panel-title">
+        <div data-toggle="collapse" data-target="#collapseThree" class="collapsed">
+          <strong>Error!</strong> Something wrong happened.
+        </div>
+      </div>
+    </div>
+    <div id="collapseThree" class="panel-collapse collapse">
+      <div class="panel-body">
+        <div class="status-code text-center">
+          {{statusCode}}
+        </div>
+        <div class="text-center">
+          {{errorMessage}}<br/>
+          Error Code: {{errorCode}}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
