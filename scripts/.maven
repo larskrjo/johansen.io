@@ -1,2 +1,1 @@
-PATH=$LARSKRISTIAN_HOME/environment/maven/bin:$PATH
-M2_HOME=$LARSKRISTIAN_HOME/environment/maven
+export M2_HOME=$LARSKRISTIAN_HOME/environment/maven

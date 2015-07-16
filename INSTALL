@@ -44,14 +44,19 @@ Edit scripts/.home to fit your installation path.
 source ~/larskristian.net/larskristian.net/scripts/.home
 source ~/larskristian.net/larskristian.net/scripts/.alias
 source ~/larskristian.net/larskristian.net/scripts/.gitprompt
-source ~/larskristian.net/larskristian.net/scripts/.mysql
 source ~/larskristian.net/larskristian.net/scripts/.tomcat
 source ~/larskristian.net/larskristian.net/scripts/.maven
-source ~/larskristian.net/larskristian.net/scripts/.ant
+// Remember to adjust these files to fit your environment
+
+// Create a folder in $TOMCAT_HOME/lib/endorsed
+
+// Set global git config parameters in local  ~/larskristian.net/larskristian.net/.bash_profile
+git config --global user.name "Your Name"
+git config --global user.email "you@email.com"
 
 // Set global git config parameters in local  ~/larskristian.net/larskristian.net/.bash_profile
 git config --global user.name "Your Name"
 git config --global user.email "you@email.com"
 
 // Add the following line to the end of ~/.bash_profile:
-PROMPT_COMMAND='if [[ "$folder" != "$PWD" && "$PWD" != "$HOME" && -e .bash_profile ]]; then folder="$PWD"; . .bash_profile; fi'
+source ~/larskristian.net/larskristian.net/scripts/.lars_bash_profile

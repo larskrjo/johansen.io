@@ -1,0 +1,1 @@
+PROMPT_COMMAND='if [[ $folder != "$PWD" && "$PWD" != "$HOME" && -e .bash_profile ]]; then folder=$PWD; . .bash_profile; fi'
